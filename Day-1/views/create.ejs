@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <div class="max-w-4xl mx-auto p-8">
+        <h1 class="text-3xl font-semibold text-center mb-6 text-indigo-600">Create New File</h1>
+        
+        <!-- Form -->
+        <form method="post" action="/create" class="bg-white p-6 rounded-lg shadow-md space-y-4">
+            <div class="space-y-2">
+                <label for="name" class="block text-lg font-medium text-gray-700">File Name:</label>
+                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+            </div>
+            <div class="space-y-2">
+                <label for="data" class="block text-lg font-medium text-gray-700">File Data:</label>
+                <input type="text" id="data" name="data" required class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+            </div>
+            <button type="submit" class="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                Create File
+            </button>
+        </form>
+
+        <!-- File List -->
+        <div class="mt-10">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Existing Files:</h2>
+            <div class="space-y-4">
+                <% files.forEach((file) => { %>
+                    <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out">
+                        <h3 class="text-xl font-medium text-gray-800"><%= file %></h3>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
